@@ -8,22 +8,14 @@
 using namespace std;
 
 int main(int argC, char *argV[]) {
-    cout << "beginning" << endl;
     string line;
-    cout << "line" << endl;
     ifstream nephiFile;
     ofstream outputFile;
-    cout << "make the files" << endl;
     nephiFile.open("1Nephi.txt");
-    cout << "open the files" << endl;
     set<string> nephiSet;
     vector<string> nephiVector;
-    cout << "create s & v" << endl;
     string userFile =  "output";
-    cout << "string userFile" << endl;
     userFile = argV[1];
-    
-    cout << "parts 1 n 2" << endl;
     
     //PARTS 1 & 2
     if(nephiFile.is_open()) {
@@ -36,7 +28,6 @@ int main(int argC, char *argV[]) {
         }
         nephiFile.close();
     }
-    cout << "Help" << endl;
     int M=2;
     map<vector<string>, vector<string>> wordMap;
     vector<string> state;
@@ -50,13 +41,12 @@ int main(int argC, char *argV[]) {
         state.push_back(*it);
         state.erase(state.begin());
     }
-    cout << "Me" << endl;
     srand(time(NULL));
     state.clear();
+    
     for (int i = 0; i < M; i++) {
         state.push_back("");
     }
-    cout << "please" << endl;
     for (int i = 0; i < 100; i++) {
         int ind = rand() % wordMap[state].size();
         cout << wordMap[state][ind] << " ";
@@ -64,18 +54,18 @@ int main(int argC, char *argV[]) {
         state.erase(state.begin());
     }
     outputFile.close();
-    cout << "something" << endl;
+
     outputFile.open(userFile + "_set.txt");
     for(set<string>::iterator it = nephiSet.begin(); it!=nephiSet.end(); it++) {
         outputFile << *it << " ";
     }
     outputFile.close();
-    cout << "is" << endl;
+
     outputFile.open(userFile + "_vector.txt");
     for (int i = 0; i < nephiVector.size(); i++) {
         outputFile << nephiVector.at(i);
     }
     outputFile.close();
-    cout << "wrong" << endl;
+
     return 0;
 }
