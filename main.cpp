@@ -11,7 +11,7 @@ int main(int argC, char *argV[]) {
     string line;
     ifstream nephiFile;
     ofstream outputFile;
-    nephiFile.open("1Nephi.txt");
+    nephiFile.open("Siken.txt");
     set<string> nephiSet;
     vector<string> nephiVector;
     string userFile =  "output";
