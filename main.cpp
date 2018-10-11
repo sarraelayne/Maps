@@ -19,9 +19,9 @@ int main(int argC, char *argV[]) {
     set<string> nephiSet;
     vector<string> nephiVector;
     cout << "create s & v" << endl;
-    string userDefinedFile =  "output";
-    cout << "string userDefinedFile" << endl;
-    userDefinedFile = argV[1];
+    string userFile =  "output";
+    cout << "string userFile" << endl;
+    userFile = argV[1];
     
     cout << "parts 1 n 2" << endl;
     
@@ -44,7 +44,7 @@ int main(int argC, char *argV[]) {
         state.push_back("");
     }
     //output file for map
-    outputFile.open(userDefinedFile + "_1_1.txt");
+    outputFile.open(userFile + "_1_1.txt");
     for (vector<string>::iterator it=nephiVector.begin(); it!=nephiVector.end(); it++) {
         wordMap[state].push_back(*it);
         state.push_back(*it);
@@ -65,13 +65,13 @@ int main(int argC, char *argV[]) {
     }
     outputFile.close();
     cout << "something" << endl;
-    outputFile.open(userDefinedFile + "_set.txt");
+    outputFile.open(userFile + "_set.txt");
     for(set<string>::iterator it = nephiSet.begin(); it!=nephiSet.end(); it++) {
         outputFile << *it << " ";
     }
     outputFile.close();
     cout << "is" << endl;
-    outputFile.open(userDefinedFile + "_vector.txt");
+    outputFile.open(userFile + "_vector.txt");
     for (int i = 0; i < nephiVector.size(); i++) {
         outputFile << nephiVector.at(i);
     }
